@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Letra A</title>
+</head>
+<body>
+    <h1>Verificar Letra A</h1>
+    
+    <label for="frase">Digite uma frase:</label>
+    <input type="text" id="frase" placeholder="Digite aqui...">
+    <button onclick="letraA()">Verificar</button>
+    
+    <p id="resultado"></p>
+    
+    <script>
+        function letraA() {
+            const str = document.getElementById("frase").value;
+            let contador = 0;
+
+            for (let i = 0; i < str.length; i++) {
+                
+                if (str[i] === 'a' || str[i] === 'A') {
+                    contador++; 
+                }
+            }
+
+            if (contador > 0) {
+                document.getElementById("resultado").innerText = 
+                    `No total aparece ${contador} letra(s) 'a'`;
+            } else {
+                document.getElementById("resultado").innerText = 
+                    `Nenhuma letra 'a' foi encontrada.`;
+            }
+        }
+    </script>
+</body>
+</html>

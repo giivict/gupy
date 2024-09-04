@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulação de Interruptores e Lâmpadas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            margin-bottom: 20px;
+        }
+        .lamp {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            border-radius: 50%;
+            background-color: grey;
+            display: inline-block;
+            position: relative;
+        }
+        .lamp.acessa {
+            background-color: yellow;
+        }
+        .lamp.quente {
+            border: 5px solid red;
+        }
+        .button {
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simulação de Interruptores e Lâmpadas</h1>
+
+    <div class="container">
+        <h2>Interruptores</h2>
+        <button class="button" onclick="ligarDesligar('A')">Ligar/Desligar Interruptor A</button>
+        <button class="button" onclick="ligarDesligar('B')">Ligar/Desligar Interruptor B</button>
+        <button class="button" onclick="ligarDesligar('C')">Ligar/Desligar Interruptor C</button>
+        <button class="button" onclick="verificarLamps()">Verificar Lâmpadas</button>
+    </div>
+
+    <div class="container">
+        <h2>Lâmpadas</h2>
+        <div id="lampA" class="lamp"></div>
+        <div id="lampB" class="lamp"></div>
+        <div id="lampC" class="lamp"></div>
+    </div>
+
+    <script>
+        // Estado dos interruptores
+        let interruptores = {
+            A: false,
+            B: false,
+            C: false
+        };
+        // Estado das lâmpadas
+        let lamps = {
+            A: false,
+            B: false,
+            C: false
+        };
+
+        function ligarDesligar(id) {
+            interruptores[id] = !interruptores[id];
+            atualizarEstadoInterruptores();
+        }
+
+        function atualizarEstadoInterruptores() {
+            // Atualiza o estado dos interruptores
+            console.log('Estado dos interruptores:', interruptores);
+        }
+
+        function verificarLamps() {
+            // Simulação: Ligar o interruptor A e depois desligá-lo
+            lamps.A = false; // Inicialmente desligado
+            lamps.B = interruptores.B; // Lâmpada ligada se o interruptor B estiver ligado
+            lamps.C = interruptores.C; // Lâmpada ligada se o interruptor C estiver ligado
+
+            // Atualizar a exibição das lâmpadas
+            document.getElementById('lampA').className = `lamp ${lamps.A ? 'acessa' : ''}`;
+            document.getElementById('lampB').className = `lamp ${lamps.B ? 'acessa' : ''}`;
+            document.getElementById('lampC').className = `lamp ${lamps.C ? 'acessa' : ''}`;
+
+            // Simular lâmpada quente (lâmpada A foi ligada e desligada anteriormente)
+            document.getElementById('lampA').className = `lamp ${lamps.A ? 'acessa' : 'quente'}`;
+
+            // Mostrar resultado
+            console.log('Estado das lâmpadas:', lamps);
+        }
+    </script>
+</body>
+</html>

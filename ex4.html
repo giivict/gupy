@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculando Sequências</title>
+    <style>
+        body {
+            margin: 20px;
+        }
+        .sequencia {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Próximos Elementos das Sequências</h1>
+
+    <div class="sequencia">
+        <h2> Sequencia a)</h2>
+        <button onclick="calcularSequenciaA()">Calcular</button>
+        <p id="resultadoA"></p>
+    </div>
+
+    <div class="sequencia">
+        <h2>Sequência b)</h2>
+        <button onclick="calcularSequenciaB()">Calcular</button>
+        <p id="resultadoB"></p>
+    </div>
+
+    <div class="sequencia">
+        <h2>Sequência c)</h2>
+        <button onclick="calcularSequenciaC()">Calcular</button>
+        <p id="resultadoC"></p>
+    </div>
+
+    <div class="sequencia">
+        <h2>Sequência d)</h2>
+        <button onclick="calcularSequenciaD()">Calcular</button>
+        <p id="resultadoD"></p>
+    </div>
+
+    <div class="sequencia">
+        <h2>Sequência e)</h2>
+        <button onclick="calcularSequenciaE()">Calcular</button>
+        <p id="resultadoE"></p>
+    </div>
+
+    <div class="sequencia">
+        <h2>Sequência f)</h2>
+        <button onclick="calcularSequenciaF()">Calcular</button>
+        <p id="resultadoF"></p>
+    </div>
+
+    <script>
+
+        // Sequência a) 
+        function calcularSequenciaA() {
+            
+            let proximo = 7 + 2;
+            document.getElementById("resultadoA").innerText = `O próximo número da sequência é: ${proximo}`;
+        }
+
+         // Sequência b)
+        function calcularSequenciaB() {
+           
+            let ultimo = 64;
+            let proximo = ultimo * 2;
+            document.getElementById("resultadoB").innerText = `O próximo número da sequência é: ${proximo}`;
+        }
+
+         // Sequência c) 
+        function calcularSequenciaC() {
+           
+            let ultimo = 36;
+            let proximo = Math.sqrt(ultimo) + 1;
+            proximo = proximo * proximo;
+            document.getElementById("resultadoC").innerText = `O próximo número da sequência é: ${proximo}`;
+        }
+
+        // Sequência d) 
+        function calcularSequenciaD() {
+            
+            let ultimo = 64;
+            let raiz = Math.sqrt(ultimo);
+            let proximo = (raiz + 2) * (raiz + 2);
+            document.getElementById("resultadoD").innerText = `O próximo número da sequência é: ${proximo}`;
+        }
+
+         // Sequência e) 
+        function calcularSequenciaE() {
+           
+            let a = 5, b = 8;
+            let proximo = a + b;
+            document.getElementById("resultadoE").innerText = `O próximo número da sequência é: ${proximo}`;
+        }
+
+        // Sequência f) 
+        function calcularSequenciaF() {
+            
+            let ultimo = 19;
+            let proximo = ultimo + 1;
+            document.getElementById("resultadoF").innerText = `O próximo número da sequência é: ${proximo}`;
+        }
+    </script>
+</body>
+</html>
